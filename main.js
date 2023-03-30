@@ -1,5 +1,17 @@
 let inp = document.querySelector(".inp");
 let btn = document.querySelector(".btn");
-let ul = document.querySelector(".ul");
+// let task = document.getElementById("h2");
+let task = document.querySelector("ul");
 
-function addTask() {}
+let toDo = [];
+function addTask() {
+  task.textContent = inp.value;
+  toDo.push(task);
+}
+
+function display() {
+  toDo.forEach();
+}
+btn.addEventListener("click");
+
+// use submit for delete btn
