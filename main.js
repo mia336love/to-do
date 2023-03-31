@@ -1,19 +1,8 @@
 let inp = document.querySelector(".inp");
 let btn = document.querySelector(".btn");
-let taskList = document.querySelector(".taskList");
-
-// let toDo = [];
-// function addTask() {
-//   task.textContent = inp.value;
-//   toDo.push(task);
-// }
-
-// function display() {
-//   toDo.forEach();
-// }
-// btn.addEventListener("click");
-
-// use submit for delete btn
+let taskList = document.createElement("ul");
+document.body.append(taskList);
+// let taskList = document.querySelector(".taskList");
 
 function addTask() {
   let task = inp.value;
@@ -35,3 +24,5 @@ function taskButtons() {
   doneBtn = document.querySelector(".doneBtn");
   console.log(doneBtn);
 }
+
+// use submit for delete btn
