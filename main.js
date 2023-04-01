@@ -3,10 +3,8 @@ let btn = document.querySelector(".btn");
 let taskList = document.createElement("ul");
 
 document.body.append(taskList);
-// let taskElement = document.createElement("li");
-// document.body.append(taskElement);
-// let taskList = document.querySelector(".taskList");
 
+// add tasks
 function addTask() {
   let task = inp.value;
 
@@ -45,7 +43,3 @@ function deleteTask(event) {
   }
 }
 taskList.addEventListener("click", deleteTask);
-
-// use submit for delete btn
-
-// stop.propogation()
