@@ -12,10 +12,10 @@ function addTask() {
 
   let display = `
     <li class="taskList">
-        <span class="spanTitle">${task}</span>
         <div>
-          <button class="doneBtn" onclick="doneButtom()">&#10004</button>
-          <button class="deleteBtn" onclick="deleteButtom()">&#10008</button>
+          <span class="spanTitle">${task}</span>
+          <button class="doneBtn" data-action="done">&#10004</button>
+          <button class="deleteBtn" data-action="delete">&#10008</button>
         </div>
       </li>
   `;
@@ -25,18 +25,41 @@ function addTask() {
 }
 btn.addEventListener("click", addTask);
 
-function doneButtom() {
-  display.style.cssText = "text-decoration: line-through";
-  // alert("good job");
-}
-function deleteButtom() {
-  let check = confirm("Вы уверены, что хотите удалить задачу?");
-  if (check == true) {
-    // alert("delete");
-    task.parentNode.removeChild(task);
-    // console.log(taskList);
+// function doneButtom() {
+//   // display.style.cssText = "text-decoration: line-through";
+//   alert("good job");
+// }
+
+let doneBtn = document.querySelector(".doneBtn");
+// doneBtn.addEventListener("click", function () {
+//   alert("good job");
+// });
+
+function doneButton(event) {
+  if (event.target.closest(".doneBtn")) {
+    console.log("good");
   }
 }
+// doneBtn.addEventListener("click", doneButton);
+// stop.propogation()
+
+// function deleteButtom() {
+//   let check = confirm("Вы уверены, что хотите удалить задачу?");
+//   if (check == true) {
+//     // alert("delete");
+//     task.parentNode.removeChild(task);
+//     // console.log(taskList);
+//   }
+// }
+
+function deleteTask(event) {
+  if (event.target.dataset.action === "delete") {
+    const parentNode = event.target.closest("li");
+    parentNode.remove();
+  }
+}
+taskList.addEventListener("click", deleteTask);
+
 // function doneButtom() {
 //   doneBtn = document.querySelector(".doneBtn");
 //   // if ($("doneBtn").click()) {
