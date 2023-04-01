@@ -28,7 +28,8 @@ btn.addEventListener("click", addTask);
 // done button
 function doneTask(event) {
   if (event.target.dataset.action === "done") {
-    alert("good job");
+    const parentNode = event.target.closest("li");
+    parentNode.style.textDecoration = "line-through";
   }
 }
 taskList.addEventListener("click", doneTask);
