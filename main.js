@@ -25,33 +25,15 @@ function addTask() {
 }
 btn.addEventListener("click", addTask);
 
-// function doneButtom() {
-//   // display.style.cssText = "text-decoration: line-through";
-//   alert("good job");
-// }
-
-let doneBtn = document.querySelector(".doneBtn");
-// doneBtn.addEventListener("click", function () {
-//   alert("good job");
-// });
-
-function doneButton(event) {
-  if (event.target.closest(".doneBtn")) {
-    console.log("good");
+// done button
+function doneTask(event) {
+  if (event.target.dataset.action === "done") {
+    alert("good job");
   }
 }
-// doneBtn.addEventListener("click", doneButton);
-// stop.propogation()
+taskList.addEventListener("click", doneTask);
 
-// function deleteButtom() {
-//   let check = confirm("Вы уверены, что хотите удалить задачу?");
-//   if (check == true) {
-//     // alert("delete");
-//     task.parentNode.removeChild(task);
-//     // console.log(taskList);
-//   }
-// }
-
+// delete button
 function deleteTask(event) {
   if (event.target.dataset.action === "delete") {
     let check = confirm("Вы уверены, что хотите удалить задачу?");
@@ -65,5 +47,4 @@ taskList.addEventListener("click", deleteTask);
 
 // use submit for delete btn
 
-// const parentNode = event.target.closest("li");
-// parentNode.remove();
+// stop.propogation()
