@@ -1,3 +1,6 @@
+/* html {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+} */
 h1 {
   margin-left: 45%;
   margin-top: 5%;
@@ -10,10 +13,10 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
 } */
-/* .taskButtons {
+.taskButtons {
   display: flex;
   column-gap: 5px;
-} */
+}
 .inp {
   position: static;
   list-style: none;
@@ -49,33 +52,42 @@ h1 {
 }
 
 .taskTitle {
-  word-wrap: break-word;
-  font-size: 18px;
+  word-break: break-all;
+  font-size: 20px;
 }
 .taskList {
-  position: static;
+  display: flex;
   list-style: none;
   height: 30px;
   width: 757px;
   max-width: 757px;
-  border-radius: 10px;
+  border-radius: 2px;
   border: 1px solid #e4e4e4;
   margin-left: 23%;
 }
 .doneBtn {
+  position: fixed;
+  top: 20;
+  left: 20;
+  right: 20;
   min-width: 50px;
+  height: 30px;
   position: absolute;
   background-color: #c5e6b8;
   border: 2px solid #91a888;
-  margin-left: 699px;
+  margin-left: 621px;
+  border-radius: 2px;
 }
 
 .deleteBtn {
+  position: fixed;
   min-width: 50px;
+  height: 30px;
   position: absolute;
   background-color: #ff6262;
   border: 2px solid #d13e3e;
-  margin-left: 750px;
+  margin-left: 671px;
+  border-radius: 2px;
   /* margin-bottom: 400px; */
 }
 /* .taskTitle {
