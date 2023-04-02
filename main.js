@@ -11,8 +11,8 @@ function addTask() {
 
     let display = `
     <li class="taskList">
-        <div>
-          <span class="spanTitle">${task}</span>
+    <span class="taskTitle">${task}</span>
+        <div class="taskButtons">
           <button class="doneBtn" data-action="done">&#10004</button>
           <button class="deleteBtn" data-action="delete">&#10008</button>
         </div>
