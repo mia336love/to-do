@@ -6,9 +6,10 @@ document.body.append(taskList);
 
 // add tasks
 function addTask() {
-  let task = inp.value;
+  if (!inp.value == "") {
+    let task = inp.value;
 
-  let display = `
+    let display = `
     <li class="taskList">
         <div>
           <span class="spanTitle">${task}</span>
@@ -17,9 +18,12 @@ function addTask() {
         </div>
       </li>
   `;
-  taskList.insertAdjacentHTML("beforeend", display);
-  inp.value = "";
-  inp.focus();
+    taskList.insertAdjacentHTML("beforeend", display);
+    inp.value = "";
+    inp.focus();
+  } else {
+    alert("Введите задачу");
+  }
 }
 btn.addEventListener("click", addTask);
 
