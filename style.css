@@ -1,29 +1,61 @@
-.btn {
-  border: 2px solid #d5d5d5;
-  border-radius: 10px;
-  margin-right: 0px auto;
+h1 {
+  margin-left: 45%;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
 .inp {
-  position: relative;
+  position: static;
   list-style: none;
   height: 30px;
-  max-width: 750px;
+  width: 750px;
   border-radius: 10px;
   border: 2px solid #e4e4e4;
-  margin: 0px auto;
+  margin-left: 25%;
 }
 
+.btn {
+  position: static;
+  background-color: #e5e5e5;
+  border: 2px solid #d5d5d5;
+  border-radius: 10px;
+  margin-left: 25%;
+  margin-bottom: 2%;
+  height: 50px;
+  width: 757px;
+}
+
+.btn:hover {
+  position: static;
+  background-color: #d1d1d1;
+  border: 2px solid #b8b8b8;
+  border-radius: 10px;
+  margin-left: 25%;
+  margin-bottom: 2%;
+  height: 50px;
+  width: 757px;
+}
 .taskList {
-  position: relative;
+  position: static;
   list-style: none;
   height: 30px;
-  max-width: 750px;
+  width: 757px;
+  /* max-width: 750px; */
   border-radius: 10px;
   border: 1px solid #e4e4e4;
-  margin: 0px auto;
+  margin-left: 23%;
 }
 
-/* button {
-  margin-right: 200px;
-} */
+.doneBtn {
+  background-color: #c5e6b8;
+  border: 2px solid #91a888;
+  margin-left: 670px;
+  margin-top: 4px;
+}
+
+.deleteBtn {
+  background-color: #ff6262;
+  border: 2px solid #d13e3e;
+  /* margin-left: 295px; */
+  /* margin-top: 4px; */
+}
