@@ -27,6 +27,11 @@ function addTask() {
 }
 btn.addEventListener("click", addTask);
 
+inp.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    addTask();
+  }
+});
 // done button
 function doneTask(event) {
   if (event.target.dataset.action === "done") {
