@@ -26,21 +26,24 @@ array.forEach(function (task) {
     <li class="taskList">
         <div>
           <span class="spanTitle">${task.name}</span>
-          <button class="doneBtn" onclick="doneButtom()">&#10004</button>
-          <button class="deleteBtn" onclick="deleteButtom()">&#10008</button>
+          <button class="doneBtn" data-action="done">&#10004</button>
+          <button class="deleteBtn" data-action="delete">&#10008</button>
         </div>
       </li>
   `;
   taskList.insertAdjacentHTML("beforeend", display);
 });
-
-function addTask() {
+let obj = {
+  name: inp.value,
+  done: false,
+};
+function addTask(obj) {
   // let task = inp.value;
 
-  let obj = {
-    name: inp.value,
-    done: false,
-  };
+  // let obj = {
+  //   name: inp.value,
+  //   done: false,
+  // };
 
   array.push(obj);
   // console.log(array);
@@ -49,9 +52,9 @@ function addTask() {
   let display = `
     <li class="taskList">
         <div>
-          <span class="spanTitle">${obj.name}</span>
-          <button class="doneBtn" onclick="doneButtom()">&#10004</button>
-          <button class="deleteBtn" onclick="deleteButtom()">&#10008</button>
+          <span class="spanTitle spanTitle--done">${obj.name}</span>
+          <button class="doneBtn" data-action="done">&#10004</button>
+          <button class="deleteBtn" data-action="delete">&#10008</button>
         </div>
       </li>
   `;
@@ -73,10 +76,13 @@ function doneTask(event) {
   if (event.target.dataset.action === "done") {
     const parentNode = event.target.closest("li");
     parentNode.style.textDecoration = "line-through";
+    // obj.done = "true";
+    // console.log(obj);
+    // Object.defineProperty(obj, "done", { value: "true" });
   }
 }
 taskList.addEventListener("click", doneTask);
-
+// console.log(obj);
 // delete button
 function deleteTask(event) {
   if (event.target.dataset.action === "delete") {
