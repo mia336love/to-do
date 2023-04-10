@@ -1,8 +1,9 @@
-let inp = document.querySelector(".inp");
-let btn = document.querySelector(".btn");
-let taskList = document.createElement("ul");
+const inp = document.querySelector(".inp");
+const btn = document.querySelector(".btn");
 
-document.body.append(taskList);
+// let taskList = document.createElement("ul");
+
+// document.body.append(taskList);
 
 let array = [
   {
@@ -60,7 +61,7 @@ function addTask() {
         </div>
       </li>
   `;
-  taskList.insertAdjacentHTML("beforeend", display);
+  taskList.insertAdjacentHTML("afterbegin", display);
 
   inp.value = "";
   inp.focus();
