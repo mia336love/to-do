@@ -33,26 +33,28 @@ array.forEach(function (task) {
   `;
   taskList.insertAdjacentHTML("beforeend", display);
 });
-let obj = {
-  name: inp.value,
-  done: false,
-};
-function addTask(obj) {
+
+// let obj = {
+//   name: inp.value,
+//   done: false,
+// };
+function addTask() {
   // let task = inp.value;
 
-  // let obj = {
-  //   name: inp.value,
-  //   done: false,
-  // };
+  let obj = {
+    name: inp.value,
+    done: false,
+  };
 
   array.push(obj);
   // console.log(array);
   saveToLK();
+  // const test = obj.done ? "spanTitle spanTitle--done" : "spanTitle";
 
   let display = `
     <li class="taskList">
         <div>
-          <span class="spanTitle spanTitle--done">${obj.name}</span>
+          <span class="spanTitle">${obj.name}</span>
           <button class="doneBtn" data-action="done">&#10004</button>
           <button class="deleteBtn" data-action="delete">&#10008</button>
         </div>
@@ -72,28 +74,52 @@ inp.addEventListener("keyup", function (event) {
   }
 });
 
-function doneTask(event) {
-  if (event.target.dataset.action === "done") {
-    const parentNode = event.target.closest("li");
-    parentNode.style.textDecoration = "line-through";
-    // obj.done = "true";
-    // console.log(obj);
-    // Object.defineProperty(obj, "done", { value: "true" });
-  }
-}
-taskList.addEventListener("click", doneTask);
+// function doneTask(event, name) {
+//   if (event.target.dataset.action === "done") {
+//     // const parentNode = event.target.closest("li");
+//     // parentNode.style.textDecoration = "line-through";
+//     const text = event.target.closest("span");
+//     text.classList.toggle("done");
+
+//     done == false ? done == true : done == false;
+//     for (let i in array) {
+//       if (array[i].name == text.textContent) {
+//         array[i].done = done;
+//         localStorage.setItem(JSON.stringify(array));
+//       }
+//     }
+//   }
+// }
+
+// function doneTask(event) {
+//   if (event.target.dataset.action === "done") {
+//     const parentNode = event.target.closest("li");
+//     parentNode.style.textDecoration = "line-through";
+
+//     saveToLK();
+
+//     const taskClass = parentNode.querySelector(".spanTitle");
+//     taskClass.classList.toggle("spanTitle--done");
+//     // obj.done = "true";
+//     // console.log(obj);
+//     // Object.defineProperty(obj, "done", { value: "true" });
+//   }
+// }
+// taskList.addEventListener("click", doneTask);
+
 // console.log(obj);
 // delete button
-function deleteTask(event) {
-  if (event.target.dataset.action === "delete") {
-    let check = confirm("Вы уверены, что хотите удалить задачу?");
-    if (check == true) {
-      const parentNode = event.target.closest("li");
-      parentNode.remove();
-    }
-  }
-}
-taskList.addEventListener("click", deleteTask);
+
+// function deleteTask(event) {
+//   if (event.target.dataset.action === "delete") {
+//     let check = confirm("Вы уверены, что хотите удалить задачу?");
+//     if (check == true) {
+//       const parentNode = event.target.closest("li");
+//       parentNode.remove();
+//     }
+//   }
+// }
+// taskList.addEventListener("click", deleteTask);
 
 function saveToLK() {
   localStorage.setItem("todo", JSON.stringify(array));
