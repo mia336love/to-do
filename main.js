@@ -138,4 +138,4 @@ function doneTask(event) {
   }
 }
 
-function render(params) {}
+// function render() {}
