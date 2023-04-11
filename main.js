@@ -1,13 +1,8 @@
-const inp = document.querySelector(".inp");
-const btn = document.querySelector(".btn");
-const form = document.querySelector("#form");
-const taskList = document.querySelector(".taskList");
-// let taskList = document.createElement("ul");
+let inp = document.querySelector(".inp");
+let btn = document.querySelector(".btn");
+let taskList = document.createElement("ul");
 
-// document.body.append(taskList);
-
-// use submit for form
-form.addEventListener("submit", addTask);
+document.body.append(taskList);
 
 let array = [
   {
@@ -40,20 +35,17 @@ array.forEach(function (task) {
 });
 
 function addTask() {
-  let taskName = inp.value;
+  // let task = inp.value;
 
   let obj = {
-    // id: ,
-    name: taskName,
+    name: inp.value,
     done: false,
   };
 
   array.push(obj);
-
+  // console.log(array);
   saveToLK();
-  // const test = obj.done ? "spanTitle spanTitle--done" : "spanTitle";
 
-  // мб сделать рефакторинг ↓
   let display = `
     <li class="taskList">
         <div>
@@ -80,62 +72,23 @@ inp.addEventListener("keyup", function (event) {
 function doneTask(event) {
   if (event.target.dataset.action === "done") {
     const parentNode = event.target.closest("li");
-    const doneTask = parentNode.querySelector("span");
-    doneTask.classList.toggle("spanTitle-done");
-    console.log("its work");
-  }
-
-  taskList.addEventListener("click", doneTask);
-  // function doneTask(event, name) {
-  //   if (event.target.dataset.action === "done") {
-  //     // const parentNode = event.target.closest("li");
-  //     // parentNode.style.textDecoration = "line-through";
-  //     const text = event.target.closest("span");
-  //     text.classList.toggle("done");
-
-  //     done == false ? done == true : done == false;
-  //     for (let i in array) {
-  //       if (array[i].name == text.textContent) {
-  //         array[i].done = done;
-  //         localStorage.setItem(JSON.stringify(array));
-  //       }
-  //     }
-  //   }
-  // }
-
-  // function doneTask(event) {
-  //   if (event.target.dataset.action === "done") {
-  //     const parentNode = event.target.closest("li");
-  //     parentNode.style.textDecoration = "line-through";
-
-  //     saveToLK();
-
-  //     const taskClass = parentNode.querySelector(".spanTitle");
-  //     taskClass.classList.toggle("spanTitle--done");
-  //     // obj.done = "true";
-  //     // console.log(obj);
-  //     // Object.defineProperty(obj, "done", { value: "true" });
-  //   }
-  // }
-  // taskList.addEventListener("click", doneTask);
-
-  // console.log(obj);
-  // delete button
-
-  // function deleteTask(event) {
-  //   if (event.target.dataset.action === "delete") {
-  //     let check = confirm("Вы уверены, что хотите удалить задачу?");
-  //     if (check == true) {
-  //       const parentNode = event.target.closest("li");
-  //       parentNode.remove();
-  //     }
-  //   }
-  // }
-  // taskList.addEventListener("click", deleteTask);
-
-  function saveToLK() {
-    localStorage.setItem("todo", JSON.stringify(array));
+    parentNode.style.textDecoration = "line-through";
   }
 }
+taskList.addEventListener("click", doneTask);
 
-// function render() {}
+// delete button
+function deleteTask(event) {
+  if (event.target.dataset.action === "delete") {
+    let check = confirm("Вы уверены, что хотите удалить задачу?");
+    if (check == true) {
+      const parentNode = event.target.closest("li");
+      parentNode.remove();
+    }
+  }
+}
+taskList.addEventListener("click", deleteTask);
+
+function saveToLK() {
+  localStorage.setItem("todo", JSON.stringify(array));
+}
