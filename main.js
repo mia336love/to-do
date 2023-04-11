@@ -1,9 +1,12 @@
 const inp = document.querySelector(".inp");
 const btn = document.querySelector(".btn");
-
+const form = document.querySelector("#form");
+const tasksList = document.querySelector(".taskList");
 // let taskList = document.createElement("ul");
 
 // document.body.append(taskList);
+
+// use submit for form
 
 let array = [
   {
@@ -35,23 +38,21 @@ array.forEach(function (task) {
   taskList.insertAdjacentHTML("beforeend", display);
 });
 
-// let obj = {
-//   name: inp.value,
-//   done: false,
-// };
 function addTask() {
-  // let task = inp.value;
+  let taskName = inp.value;
 
   let obj = {
-    name: inp.value,
+    // id: ,
+    name: taskName,
     done: false,
   };
 
   array.push(obj);
-  // console.log(array);
+
   saveToLK();
   // const test = obj.done ? "spanTitle spanTitle--done" : "spanTitle";
 
+  // мб сделать рефакторинг ↓
   let display = `
     <li class="taskList">
         <div>
@@ -74,6 +75,11 @@ inp.addEventListener("keyup", function (event) {
     addTask();
   }
 });
+
+function doneTask(event) {
+  if (event.target.dataset.action === "done") {
+    const parentNode = event.target.closest("li");
+}
 
 // function doneTask(event, name) {
 //   if (event.target.dataset.action === "done") {
