@@ -1,12 +1,13 @@
 const inp = document.querySelector(".inp");
 const btn = document.querySelector(".btn");
 const form = document.querySelector("#form");
-const tasksList = document.querySelector(".taskList");
+const taskList = document.querySelector(".taskList");
 // let taskList = document.createElement("ul");
 
 // document.body.append(taskList);
 
 // use submit for form
+form.addEventListener("submit", addTask);
 
 let array = [
   {
@@ -62,7 +63,7 @@ function addTask() {
         </div>
       </li>
   `;
-  taskList.insertAdjacentHTML("afterbegin", display);
+  taskList.insertAdjacentHTML("beforeend", display);
 
   inp.value = "";
   inp.focus();
@@ -79,8 +80,12 @@ inp.addEventListener("keyup", function (event) {
 function doneTask(event) {
   if (event.target.dataset.action === "done") {
     const parentNode = event.target.closest("li");
+    const doneTask = parentNode.querySelector("span");
+    doneTask.classList.toggle("spanTitle-done");
+    console.log("its work");
   }
 
+  taskList.addEventListener("click", doneTask);
   // function doneTask(event, name) {
   //   if (event.target.dataset.action === "done") {
   //     // const parentNode = event.target.closest("li");
@@ -132,3 +137,5 @@ function doneTask(event) {
     localStorage.setItem("todo", JSON.stringify(array));
   }
 }
+
+function render(params) {}
