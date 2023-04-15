@@ -23,7 +23,7 @@ if (localStorage.getItem("todo")) {
 array.forEach(function (task) {
   // console.log(task);
   let display = `
-    <li class="taskList">
+    <li id="${task.id}" class="taskList">
         <div>
           <span class="spanTitle">${task.name}</span>
           <button class="doneBtn" data-action="done">&#10004</button>
@@ -51,7 +51,7 @@ function addTask() {
   saveToLK();
 
   let display = `
-    <li class="taskList">
+    <li id="${obj.id}" class="taskList">
         <div>
           <span class="spanTitle">${obj.name}</span>
           <button class="doneBtn" data-action="done">&#10004</button>
@@ -80,8 +80,9 @@ let done = false;
 function doneTask(event, name) {
   if (event.target.dataset.action === "done") {
     const parentNode = event.target.closest("li");
-    parentNode.classList.toggle("done");
-    // console.log(parentNode);
+    const taskTitle = parentNode.querySelector("span");
+    taskTitle.classList.toggle("done");
+    console.log(taskTitle);
 
     done == false ? (done = true) : (done = false);
     for (let i in array) {
@@ -106,6 +107,16 @@ function deleteTask(event) {
     if (check == true) {
       const parentNode = event.target.closest("li");
       parentNode.remove();
+
+      const id = parentNode.id;
+      const index = array.findIndex((task) => {
+        if (task.id == id) {
+          return true;
+        }
+      });
+      // console.log(index);
+
+      array.splice(index, 1);
     }
   }
   saveToLK();

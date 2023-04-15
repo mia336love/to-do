@@ -99,13 +99,7 @@ h1 {
   padding-top: 5px;
 } */
 
-/* .done {
+.done {
   text-decoration: line-through;
   color: #b8b8b8;
-} */
-
-.done {
-  color: chartreuse;
-  text-decoration: line-through;
-  text-decoration-color: darkorange;
 }
