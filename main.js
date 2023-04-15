@@ -76,26 +76,35 @@ inp.addEventListener("keyup", function (event) {
 // function doneTask() {
 // let text = document
 // }
-let done = false;
-function doneTask(event, name) {
+// let done = false;
+function doneTask(event) {
   if (event.target.dataset.action === "done") {
     const parentNode = event.target.closest("li");
     const taskTitle = parentNode.querySelector("span");
     taskTitle.classList.toggle("done");
-    console.log(taskTitle);
+    // console.log(taskTitle);
 
-    done == false ? (done = true) : (done = false);
-    for (let i in array) {
-      if (array[i].name == name) {
-        array[i].done = done;
-        saveToLK();
+    // done == false ? (done = true) : (done = false);
+    // for (let i in array) {
+    //   if (array[i].name == name) {
+    //     array[i].done = done;
 
-        // localStorage.setItem("todo", JSON.stringify(array));
+    const id = parentNode.id;
+    const task = array.find((task) => {
+      if (task.id == id) {
+        return true;
       }
-    }
+    });
+    task.done = !task.done;
+    saveToLK();
+    // console.log(task);
+
+    // localStorage.setItem("todo", JSON.stringify(array));
   }
-  // saveToLK();
 }
+
+// saveToLK();
+
 taskList.addEventListener("click", doneTask);
 
 // delete button
