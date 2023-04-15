@@ -24,11 +24,11 @@ array.forEach(function (task) {
   // console.log(task);
   let display = `
     <li id="${task.id}" class="taskList">
-        <div>
-          <span class="spanTitle">${task.name}</span>
-          <button class="doneBtn" data-action="done">&#10004</button>
-          <button class="deleteBtn" data-action="delete">&#10008</button>
-        </div>
+       <span class="spanTitle">${task.name}</span>
+            <div class="taskButtons">
+              <button class="doneBtn" data-action="done">&#10004</button>
+              <button class="deleteBtn" data-action="delete">&#10008</button>
+            </div>
       </li>
   `;
   taskList.insertAdjacentHTML("beforeend", display);
@@ -52,11 +52,11 @@ function addTask() {
 
   let display = `
     <li id="${obj.id}" class="taskList">
-        <div>
           <span class="spanTitle">${obj.name}</span>
-          <button class="doneBtn" data-action="done">&#10004</button>
-          <button class="deleteBtn" data-action="delete">&#10008</button>
-        </div>
+            <div class="taskButtons">
+              <button class="doneBtn" data-action="done">&#10004</button>
+              <button class="deleteBtn" data-action="delete">&#10008</button>
+            </div>
       </li>
   `;
   taskList.insertAdjacentHTML("beforeend", display);

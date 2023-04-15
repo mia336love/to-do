@@ -13,12 +13,13 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
 } */
-.taskButtons {
-  display: flex;
-  justify-content: space-between;
-  /* column-gap: 5px; */
-  /* width: 300px; */
-}
+
+/* .taskButtons { */
+/* display: flex; */
+/* justify-content: space-between; */
+/* column-gap: 5px; */
+/* width: 300px; */
+/* } */
 .inp {
   position: static;
   list-style: none;
@@ -70,6 +71,8 @@ h1 {
   margin-left: 23%;
 }
 .doneBtn {
+  justify-content: space-between;
+
   position: fixed;
   top: 20;
   left: 20;
@@ -84,6 +87,8 @@ h1 {
 }
 
 .deleteBtn {
+  justify-content: space-between;
+  /* align-items: center; */
   position: fixed;
   min-width: 50px;
   height: 30px;
