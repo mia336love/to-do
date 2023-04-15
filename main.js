@@ -36,14 +36,18 @@ array.forEach(function (task) {
 
 function addTask() {
   // let task = inp.value;
-
+  randomValue = Math.round(
+    Math.random() * (Math.max(9999, 1) - Math.min(9999, 1)) + Math.min(9999, 1)
+  );
   let obj = {
+    id: randomValue,
     name: inp.value,
     done: false,
   };
 
   array.push(obj);
-  // console.log(array);
+  console.log(array);
+  // console.log(obj);
   saveToLK();
 
   let display = `
@@ -69,15 +73,33 @@ inp.addEventListener("keyup", function (event) {
   }
 });
 
-function doneTask(event) {
+// function doneTask() {
+// let text = document
+// }
+let done = false;
+function doneTask(event, name) {
   if (event.target.dataset.action === "done") {
     const parentNode = event.target.closest("li");
-    parentNode.style.textDecoration = "line-through";
+    parentNode.classList.toggle("done");
+    // console.log(parentNode);
+
+    done == false ? (done = true) : (done = false);
+    for (let i in array) {
+      if (array[i].name == name) {
+        array[i].done = done;
+        saveToLK();
+
+        // localStorage.setItem("todo", JSON.stringify(array));
+      }
+    }
   }
+  // saveToLK();
 }
 taskList.addEventListener("click", doneTask);
 
 // delete button
+
+// use findIndex
 function deleteTask(event) {
   if (event.target.dataset.action === "delete") {
     let check = confirm("Вы уверены, что хотите удалить задачу?");
@@ -86,6 +108,7 @@ function deleteTask(event) {
       parentNode.remove();
     }
   }
+  saveToLK();
 }
 taskList.addEventListener("click", deleteTask);
 
